@@ -17,12 +17,7 @@ public class Grupo {
     }
 
     public Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
-        Persona[] personas = new Persona[cantidadEstudiantes];
-        this.estudiantes = personas; //toca no llamar al primer constructor
-        this.profesor = profesor;
-        this.asignatura = asignatura;
-        this.codigo = codigo;
-        this.horario = horario;
+    	this(new Persona[cantidadEstudiantes], profesor, asignatura, codigo, horario);
     }
 
     public Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura) {
@@ -30,7 +25,7 @@ public class Grupo {
         this.profesor = profesor;
         this.asignatura = asignatura;
     }
-    
+
     void cambiarEstudiante(Persona estudianteViejo, Persona estudianteNuevo) {
         for (int i = 0; i < estudiantes.length; i++) {
             if (estudiantes[i].getCedula() == estudianteViejo.getCedula()) {
@@ -43,4 +38,5 @@ public class Grupo {
     void cambiarEstudiante(int indice, Persona estudiante) {
         estudiantes[indice] = estudiante;
     }
+
 }
